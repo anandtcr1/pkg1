@@ -1,0 +1,75 @@
+Ethernet adapter Ethernet:
+
+IPv4 Address : 192.168.70.117
+Subnet Mask  : 255.255.255.0
+Gateway      : 192.168.70.1
+
+windows ip addres is 192.168.70.117
+ubuntu ip adddress is 192.168.70.118
+
+
+ping 192.168.70.118 is happening from windows.
+sudo ping 192.168.70.117 is not happening from ubuntu
+
+
+ssh vboxuser@192.168.70.118
+
+
+
+sudo apt update
+sudo apt install -y curl openssh-server ca-certificates tzdata perl git
+
+
+
+NAME="Ubuntu"
+VERSION="24.04.x LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+
+this is correct
+
+
+ip addr -> 192.168.70.119
+
+
+sudo apt install -y curl openssh-server ca-certificates tzdata perl git
+
+timedatectl
+
+curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ce/script.deb.sh | sudo bash
+
+sudo EXTERNAL_URL="http://192.168.70.119" apt install gitlab-ce
+
+sudo gitlab-ctl status
+
+sudo cat /etc/gitlab/initial_root_password
+Password: PCJqGhTj1S7uYswGiXUrXxl2jo0ZTPoRphMTyf10c6Y=
+PCJqGhTj1S7uYswGiXUrXxl2jo0ZTPoRphMTyf10c6Y=
+
+
+sudo ufw status
+
+sudo gitlab-rails console (to reset the passoword)
+
+user.password = 'P@ssw0rd'
+user.password_confirmation = 'P@ssw0rd'
+user.save!
+
+
+
+Step 1: Create SSH key on your Windows developer machine
+
+On Windows PowerShell:
+
+ssh-keygen -t ed25519 -C "root@gitlab"
+
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIJgr9jKQ1TI7S3TrVkB7+duuDwxuo8Ja3Djkj+DEYadJ root@gitlab
+
+
+git config --global user.email "anand.tcr@gmail.com"
+
+
+
+sudo cp /var/opt/gitlab/backups/1785079389_2026_07_26_19.2.0_gitlab_backup.tar ~/
+sudo cp /etc/gitlab/gitlab-secrets.json ~/
+sudo cp /etc/gitlab/gitlab.rb ~/
+sudo chown vboxuser:vboxuser ~/1785079389_2026_07_26_19.2.0_gitlab_backup.tar ~/gitlab-secrets.json ~/gitlab.rb
