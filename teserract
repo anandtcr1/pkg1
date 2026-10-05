@@ -1,0 +1,30 @@
+import pytesseract
+import os
+
+tesseract_path = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+
+if os.path.exists(tesseract_path):
+    pytesseract.pytesseract.tesseract_cmd = tesseract_path
+
+    try:
+        version = pytesseract.get_tesseract_version()
+        print("Tesseract is installed.")
+        print("Version:", version)
+    except Exception as e:
+        print("Tesseract executable exists, but could not be started.")
+        print(e)
+else:
+    print("Tesseract executable not found.")
+
+
+
+
+import pytesseract
+
+try:
+    version = pytesseract.get_tesseract_version()
+    print("Tesseract is installed.")
+    print("Version:", version)
+except Exception as e:
+    print("Tesseract is NOT available.")
+    print("Error:", e)
